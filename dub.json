@@ -1,0 +1,13 @@
+{
+	"authors": [
+		"Nafees"
+	],
+	"copyright": "Copyright © 2020, Nafees",
+	"dependencies": {
+		"arsd-official:terminal": "~>7.2.0",
+		"utils": "~>0.3.8"
+	},
+	"description": "A simple game engine for weird displays (like terminals)",
+	"license": "MIT",
+	"name": "nengine"
+}
