@@ -33,7 +33,7 @@ public abstract class GameObject{
 private:
 
 protected:
-	int _x, _y; /// x and y coordinates
+	float _x, _y; /// x and y coordinates
 	Sprite _sprite; /// it's sprite
 	CollisionMap _collisionMap; /// collision map
 public:
@@ -63,19 +63,19 @@ public:
 		return _collisionMap = newCollisionMap;
 	}
 	/// Returns: x coordinates of this object
-	@property int x(){
+	@property float x(){
 		return _x;
 	}
 	/// ditto
-	@property int x(int newX){
+	@property float x(float newX){
 		return _x = newX;
 	}
 	/// Returns: y coordinates of this object
-	@property int y(){
+	@property float y(){
 		return _y;
 	}
 	/// ditto
-	@property int y(int newY){
+	@property float y(float newY){
 		return _y = newY;
 	}
 }
