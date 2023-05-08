@@ -12,19 +12,17 @@ public struct RGBA{
 	ubyte b = 0; /// blue
 	ubyte a = 255; /// alpha
 	/// operator overload
-	RGBA opBinary(string op)(RGBA rhs){
-		static if (op == "+"){
-			immutable float aAlpha = cast(float)rhs.a / 255;
-			immutable float bAlpha = cast(float)this.a / 255;
-			immutable float alpha = aAlpha + (bAlpha * (1 - aAlpha));
-			immutable float bMultiplier = bAlpha * (1 - aAlpha);
-			return RGBA(
-				cast(ubyte)(((rhs.r * aAlpha) + (this.r * bMultiplier)) / alpha),
-				cast(ubyte)(((rhs.g * aAlpha) + (this.g * bMultiplier)) / alpha),
-				cast(ubyte)(((rhs.b * aAlpha) + (this.b * bMultiplier)) / alpha),
-				cast(ubyte)(alpha * 255)
-			);
-		}else static assert(0, "operator '"~op~"' not implemented for nengine.io.RGBA");
+	RGBA opBinary(string op : "+")(RGBA rhs){
+		immutable float aAlpha = cast(float)rhs.a / 255;
+		immutable float bAlpha = cast(float)this.a / 255;
+		immutable float alpha = aAlpha + (bAlpha * (1 - aAlpha));
+		immutable float bMultiplier = bAlpha * (1 - aAlpha);
+		return RGBA(
+			cast(ubyte)(((rhs.r * aAlpha) + (this.r * bMultiplier)) / alpha),
+			cast(ubyte)(((rhs.g * aAlpha) + (this.g * bMultiplier)) / alpha),
+			cast(ubyte)(((rhs.b * aAlpha) + (this.b * bMultiplier)) / alpha),
+			cast(ubyte)(alpha * 255)
+		);
 	}
 }
 
@@ -71,7 +69,7 @@ public struct MouseEvent{
 public struct KeyboardEvent{
 	/// possible types
 	enum Type{
-		Pressed, 
+		Pressed,
 		Released,
 	}
 	/// type of this event
